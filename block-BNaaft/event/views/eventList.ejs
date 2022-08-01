@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <title>Events List</title>
+  </head>
+  <body>
+    <header class="flex">
+      <div class="flex-50 left">
+        <a href="/" class="logo">Home</a>
+      </div>
+      <div class="flex-50 right">
+        <a href="/events/new" class="btn">Add event</a>
+      </div>
+    </header>
+    <main class="flex">
+      <aside class="sidebar flex-20">
+        <h3>Categories</h3>
+        <ul>
+          <% events.forEach(event => { %>
+          <li>
+            <a
+              href="/events/<%= event.id %>/category/<%= event.event_category %>"
+              ><%= event.event_category %></a
+            >
+          </li>
+          <% }) %>
+        </ul>
+        <hr />
+        <h3>Location</h3>
+        <ul>
+          <% events.forEach(event => { %>
+          <li>
+            <a href="/events/<%= event.id %>/location/<%= event.location %>"
+              ><%= event.location %></a
+            >
+          </li>
+          <% }) %>
+        </ul>
+      </aside>
+      <section class="flex-80">
+        <h1>Events List</h1>
+        <% events.forEach(event => { %>
+        <a href="/events/<%= event.id %>"><h2><%= event.title %></h2> </a>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+</html>

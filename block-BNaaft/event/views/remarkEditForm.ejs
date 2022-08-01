@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Edit Remark</title>
+  </head>
+  <body class="center">
+    <header class="flex">
+      <div class="flex-50 left">
+        <a href="/" class="logo">Home</a>
+      </div>
+    </header>
+    <h1>Edit Remark</h1>
+    <form action="/remarks/<%= remark.id %>" method="POST" class="form">
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        value="<%= remark.title %>"
+        class="form-control"
+      />
+      <input
+        type="text"
+        name="author"
+        placeholder="Name"
+        value="<%= remark.author %>"
+        class="form-control"
+      />
+      <input type="submit" value="Submit" class="btn btn2" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <title>Add Event</title>
+  </head>
+  <body class="center">
+    <header class="flex">
+      <div class="flex-50 left"></div>
+      <div class="flex-50 right">
+        <a href="/" class="btn">Back</a>
+      </div>
+    </header>
+    <h1>Add Event</h1>
+    <form action="/events" method="POST" class="form">
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        class="form-control"
+      />
+      <textarea
+        name="summary"
+        rows="6"
+        placeholder="Summary"
+        class="form-control"
+      ></textarea>
+      <input type="text" name="host" placeholder="Host" class="form-control" />
+      <input
+        type="date"
+        name="start_date"
+        placeholder="Start Date"
+        class="form-control"
+      />
+      <input
+        type="date"
+        name="end_date"
+        placeholder="End Date"
+        class="form-control"
+      />
+      <input
+        type="text"
+        name="event_category"
+        placeholder="Category"
+        class="form-control"
+      />
+      <input
+        type="text"
+        name="location"
+        placeholder="Location"
+        class="form-control"
+      />
+      <input type="submit" value="Submit" class="btn btn2" />
+    </form>
+  </body>
+</html>
