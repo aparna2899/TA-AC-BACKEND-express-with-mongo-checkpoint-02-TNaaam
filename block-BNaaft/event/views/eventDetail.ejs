@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <title>Event Detail</title>
+  </head>
+  <body>
+    <header class="flex">
+      <div class="flex-50 left">
+        <a href="/" class="logo">Home</a>
+      </div>
+      <div class="flex-50 right">
+        <a href="/events" class="btn">Back</a>
+      </div>
+    </header>
+    <section class="container">
+      <h2><%= event.title %></h2>
+      <% event.event_category = event.event_category[0].split(',') %> <%
+      event.event_category.forEach(category => { %>
+      <a href="<%= event.id %>/category/<%= category%>"
+        ><span><%= category%></span></a
+      >
+      <% }) %>
+      <p><b>Host : </b> <%= event.host %></p>
+      <p><b>Start Date :</b> <%= event.start_date %></p>
+      <p><b>End Date :</b> <%= event.end_date %></p>
+      <p><b>Location:</b> <%= event.location %></p>
+      <hr />
+      <p><b>Summary :</b> <%= event.summary %></p>
+      <hr />
+      <div class="flex">
+        <a href="/events/<%= event.id %>/edit" class="btn btn2">Edit</a>
+        <a href="/events/<%= event.id %>/delete" class="btn btn2">Delete</a>
+      </div>
+      <form action="/events/<%= event.id %>/remarks" method="POST">
+        <textarea
+          name="title"
+          rows="4"
+          cols="30"
+          placeholder="Write your remarks here.."
+          class="remark-box"
+        ></textarea>
+        <input
+          type="text"
+          name="author"
+          placeholder="Name"
+          class="author-name"
+        />
+        <input type="submit" value="Add remark" class="btn btn2" />
+      </form>
+      <hr />
+      <h3>Remarks</h3>
+      <% event.remarks.forEach(remark => { %>
+      <div class="remark-list">
+        <p><%= remark.author %> : <b><%= remark.title %></b></p>
+        <a href="/remarks/<%= remark.id %>/edit" class="btn btn3">Edit</a>
+        <a href="/remarks/<%= remark.id %>/delete" class="btn btn3">Delete</a>
+      </div>
+      <% }) %>
+    </section>
+  </body>
+</html>
