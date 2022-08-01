@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title>Event</title>
+  </head>
+  <body>
+    <header class="flex">
+      <div class="flex-50 left">
+        <a href="/" class="logo">Home</a>
+      </div>
+      <div class="flex-50 right">
+        <a href="/events" class="btn">Back</a>
+      </div>
+    </header>
+    <div class="container">
+      <h1>Events by category</h1>
+      <% events.forEach(event => { %>
+      <a href="/events/<%= event.id%>"><h2><%= event.title %></h2></a>
+      <% }) %>
+    </div>
+  </body>
+</html>
